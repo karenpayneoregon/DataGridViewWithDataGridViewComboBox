@@ -27,7 +27,7 @@ Partial Class Form1
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.PersonId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FirstNameColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColorsColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,25 +48,27 @@ Partial Class Form1
         '
         Me.cboColors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboColors.FormattingEnabled = True
-        Me.cboColors.Location = New System.Drawing.Point(111, 24)
+        Me.cboColors.Location = New System.Drawing.Point(160, 22)
         Me.cboColors.Name = "cboColors"
         Me.cboColors.Size = New System.Drawing.Size(182, 21)
         Me.cboColors.TabIndex = 1
         '
         'Button1
         '
+        Me.Button1.Image = Global.Demo4.My.Resources.Resources.Add_8x_16x
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button1.Location = New System.Drawing.Point(19, 22)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(135, 23)
         Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
+        Me.Button1.Text = "Add color"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PersonId, Me.Column3, Me.ColorsColumn})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PersonId, Me.FirstNameColumn, Me.ColorsColumn})
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
@@ -81,11 +83,11 @@ Partial Class Form1
         Me.PersonId.HeaderText = "ID"
         Me.PersonId.Name = "PersonId"
         '
-        'Column3
+        'FirstNameColumn
         '
-        Me.Column3.DataPropertyName = "FirstName"
-        Me.Column3.HeaderText = "First Name"
-        Me.Column3.Name = "Column3"
+        Me.FirstNameColumn.DataPropertyName = "FirstName"
+        Me.FirstNameColumn.HeaderText = "First Name"
+        Me.FirstNameColumn.Name = "FirstNameColumn"
         '
         'ColorsColumn
         '
@@ -113,9 +115,9 @@ Partial Class Form1
     End Sub
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents PersonId As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents ColorsColumn As DataGridViewComboBoxColumn
     Friend WithEvents Button1 As Button
     Friend WithEvents cboColors As ComboBox
+    Friend WithEvents PersonId As DataGridViewTextBoxColumn
+    Friend WithEvents FirstNameColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ColorsColumn As DataGridViewComboBoxColumn
 End Class

@@ -2,9 +2,7 @@
 
 Namespace Classes
     Public Class DataOperations
-        Private ConnectionString As String =
-                    "Data Source=KARENS-PC;" &
-                    "Initial Catalog=ExampleDataGridViewComboBox_1;Integrated Security=True"
+        Private ConnectionString As String = "Data Source=.\SQLEXPRESS;Initial Catalog=ExampleDataGridViewComboBox_1;Integrated Security=True"
         Public Property PersonsTable As New DataTable
         Public Property ColorTable As New DataTable
         Public Property InformationTable As New DataTable
@@ -13,8 +11,11 @@ Namespace Classes
         ''' Load data, called in form load event
         ''' </summary>
         Public Sub GetData()
+
             Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
+
                 Using cmd As New SqlCommand With {.Connection = cn}
+
                     Try
                         cn.Open()
                     Catch ex As Exception
@@ -31,7 +32,9 @@ Namespace Classes
                     PersonsTable.Load(cmd.ExecuteReader)
 
                 End Using
+
             End Using
+
         End Sub
         ''' <summary>
         ''' Add a new color to the Colors Table if it does not
@@ -43,6 +46,7 @@ Namespace Classes
         Public Function InsertNewColor(pColor As Color, ByRef pNewIdentifier As Integer) As Boolean
 
             Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
+
                 Using cmd As New SqlCommand With {.Connection = cn}
 
                     cmd.CommandText = "INSERT INTO dbo.Colors (ColorText) VALUES (@ColorText); " &
@@ -61,8 +65,11 @@ Namespace Classes
                         Exception.Message = ex.Message
                         Return False
                     End Try
+
                 End Using
+
             End Using
+
         End Function
         ''' <summary>
         ''' Called before above method to see if the color currently
@@ -71,7 +78,9 @@ Namespace Classes
         ''' <param name="pColor"></param>
         ''' <returns></returns>
         Public Function ColorExists(pColor As Color) As Boolean
+
             Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
+
                 Using cmd As New SqlCommand With {.Connection = cn}
 
                     cmd.CommandText = "SELECT [ColorId] FROM [dbo].[Colors] WHERE ColorText = @ColorText"
@@ -91,7 +100,9 @@ Namespace Classes
                         Exception.Message = ex.Message
                         Return False
                     End Try
+
                 End Using
+
             End Using
 
         End Function
@@ -108,6 +119,7 @@ Namespace Classes
             Dim result As Integer = 0
 
             Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
+
                 Using cmd As New SqlCommand With {.Connection = cn}
                     cmd.CommandText = "UPDATE Person SET ColorId = @ColorId WHERE Id = @PersonId"
                     cmd.Parameters.AddWithValue("@ColorId", pColorId)
@@ -128,11 +140,13 @@ Namespace Classes
                         '
                         Console.WriteLine(ex.Message)
                     End Try
+
                 End Using
             End Using
 
             Return result = 1
 
         End Function
+
     End Class
 End Namespace

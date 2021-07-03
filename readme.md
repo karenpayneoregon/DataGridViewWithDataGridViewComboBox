@@ -1,13 +1,13 @@
-<p align="left">
-    <a href="https://social.technet.microsoft.com/profile/kareninstructor/">
-    <img alt="logo" src="Assets/Karen.png">
-    </a>
-</p>
+# About
 
-<p>This example shows how to load from SQL-Server database into a DataGridView DataGridViewComboBox column along with a method to dynamically add new items to the DataGridViewComboBox which is stored in a database table.</p>
-<p>Coded with Visual Studio 2017</p>
-<p>For those using earlier versions of Visual Studio consider this code sample view only, study the code and adapt to your version of Visual Studio.</p>
+This example shows how to load from SQL-Server database into a DataGridView DataGridViewComboBox column along with a method to dynamically add new items to the DataGridViewComboBox which is stored in a database table.
 
-<p align="left">
-    <img alt="logo" src="Assets/ScreenShot.png">
-</p>
+
+:heavy_check_mark: Coded with Visual Studio 2017 then opened in Visual Studio 2019
+
+:bulb: Consider using a BindingList in tangent with a BindingSource
+
+
+
+
+![img](Assets/colors.png)

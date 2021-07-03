@@ -2,7 +2,7 @@
     Module Extensions
         <DebuggerStepThrough()>
         <Runtime.CompilerServices.Extension()>
-        Public Function IsComboBoxCell(ByVal sender As DataGridViewCell) As Boolean
+        Public Function IsComboBoxCell(sender As DataGridViewCell) As Boolean
             Dim result As Boolean = False
             If sender.EditType IsNot Nothing Then
                 If sender.EditType Is GetType(DataGridViewComboBoxEditingControl) Then
@@ -11,6 +11,13 @@
             End If
             Return result
         End Function
+
+        <DebuggerStepThrough()>
+        <Runtime.CompilerServices.Extension()>
+        Public Function NotComboBox(ByVal sender As DataGridViewCell) As Boolean
+            Return Not sender.IsComboBoxCell
+        End Function
+
 
         <DebuggerStepThrough()>
         <Runtime.CompilerServices.Extension()>

@@ -33,6 +33,9 @@ Public Class Form1
         Next
 
         cboColors.SelectedIndex = 0
+
+        AddHandler DataGridView1.CellValueChanged, AddressOf DataGridView1_CellValueChanged
+
     End Sub
 
     ''' <summary>
@@ -74,6 +77,7 @@ Public Class Form1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
         Dim operations As New DataOperations
         Dim newColor As Color = Color.FromName(cboColors.Text)
         Dim newIdentifier As Integer = 0
@@ -91,6 +95,20 @@ Public Class Form1
             MessageBox.Show($"The color {newColor.Name} not added as it exists already")
         End If
     End Sub
+    ''' <summary>
+    ''' Stub for providing access to updating, in this case FirstName. In a real application
+    ''' there surely would be more properties and this idea here is not the best way too go.
+    '''
+    ''' A  better idea would be to use a BindingList and monitor ListChanged event
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs)
+        If DataGridView1.CurrentCell.NotComboBox Then
+            Console.WriteLine(DataGridView1.Columns(e.ColumnIndex).Name)
+        End If
+    End Sub
+
     Private Function GetColors() As IEnumerable(Of KnownColor)
         Dim systemColorsType As Type = GetType(SystemColors)
 
